@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Iceberg" rel="stylesheet">
+<title>Fuel NHL Sweater BIngo</title>
+<link rel = "icon" href = "images/favicon.ico">
+<style>
+    body {
+        background-color: #000000;
+        text-align: center;
+    }
+    div.main {
+        background-color: #b82a2f;
+        color: #f5b153;
+        margin-left: 100px;
+        margin-right: 100px;
+        margin-top: 50px;
+        margin-right: 50px;
+        font-family: "Arial Black";
+        text-align: center;
+        padding-bottom: 5px;
+    }
+    div.cardoutside {
+        background-color: #000000;
+        text-align: center;
+        width: 500px;
+        margin: 0 auto;
+        color: #b82a2f;
+    }
+    table {
+        /*margin-top: 15px;*/
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+    td {
+        width: 90px;
+        height: 90px;
+        background-color: #ffffff;
+        text-align: center;
+        /*padding:5px;*/
+    }
+    @media print {
+        div.cardoutside {-webkit-print-color-adjust: exact;}
+    }
+</style>
+<script>
+    var clicked = false;
+    //var num = 31;
+    //var allTeams = new Array(num);
+    var usedTeams = new Array(31);
+    var allTeams = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31]; 
+    
+    /*function setSquares() {
+    for (i = 1; i < 25; i++)
+        {
+            var whichTeam = Math.floor((Math.random() * 31) + 1);
+            if (!usedTeams[whichTeam]) {
+                usedTeams[whichTeam] = true;
+                //console.log(whichTeam);
+                //document.getElementById("space" + i).innerHTML = "<img src = 'images/team" + whichTeam + ".png'>";
+            }
+            else {
+                whichTeam = i;
+                //document.getElementById("space" + i).innerHTML = "<img src = 'images/team" + whichTeam + ".png'>";
+            }
+            document.getElementById("space" + i).innerHTML = "<img src = 'images/team" + whichTeam + ".png'>";
+        }
+    }*/
+    
+    function setSquares()
+     {
+         allTeams.sort(function(a,b){return 0.5 - Math.random()});
+         for (i = 1; i < 25; i++)
+            {
+                console.log(allTeams[i]);
+                document.getElementById("space" + i).innerHTML = "<img src = 'images/team" + allTeams[i] + ".png'>";
+            }
+     }
+    
+    
+    
+    /*THis function is good! Don't mess with it!*/
+    function selectSpace(found) {
+        if (clicked == true) {
+            document.getElementById("space" + found).style.backgroundColor = "#ffffff";
+            clicked = false;
+            return;
+        }
+        document.getElementById("space" + found).style.backgroundColor = "#f5b153";
+        clicked = true;
+    }
+    /*function selectSpace(found) {
+        if (document.getElementById("space" + found).style.backgroundColor = "#ffffff")
+            {
+                document.getElementById("space" + found).style.backgroundColor = "#f5b153";
+                return;
+            }
+        if (document.getElementById("space" + found).style.backgroundColor = "#f5b153")
+            {
+                document.getElementById("space" + found).style.backgroundColor = "#ffffff";
+            }
+    }*/
+</script>
+</head>
+<body onload="setSquares()">
+    <div class = "main">
+    <h2>Indy Fuel NHL Sweater Bingo</h2>
+    <h4>Something to do during intermissions and before the games start. Just print out this randomly generated page, and mark all the NHL sweaters or other gear you can find from your seat or on the concourse. I plan to add a comment section soon, so you can let the rest of us know if you get a bingo!</h4>
+        
+    <div class = "cardoutside">
+    <h2>Indiana Farmers Coliseum<br>NHL Sweater Bingo</h2>
+    <table>
+        <tr>
+            <td id = "space1" onclick="selectSpace(1)"></td>
+            <td onclick="selectSpace(2)" id = "space2"></td>
+            <td onclick="selectSpace(3)" id = "space3"></td>
+            <td onclick="selectSpace(4)" id = "space4"></td>
+            <td onclick="selectSpace(5)" id = "space5"></td>
+        </tr>    
+        <tr>
+            <td onclick="selectSpace(6)" id = "space6"></td>
+            <td onclick="selectSpace(7)" id = "space7"></td>
+            <td onclick="selectSpace(8)" id = "space8"></td>
+            <td onclick="selectSpace(9)" id = "space9"></td>
+            <td onclick="selectSpace(10)" id = "space10"></td>
+        </tr>   
+        <tr>
+            <td onclick="selectSpace(11)" id = "space11"></td>
+            <td onclick="selectSpace(12)" id = "space12"></td>
+            <td id = "spacefree" onclick = "selectSpace('free')"><img src = "images/free.png"></td>
+            <td onclick="selectSpace(13)" id = "space13"></td>
+            <td onclick="selectSpace(14)" id = "space14"></td>
+        </tr>   
+        <tr>
+            <td onclick="selectSpace(15)" id = "space15"></td>
+            <td onclick="selectSpace(16)" id = "space16"></td>
+            <td onclick="selectSpace(17)" id = "space17"></td>
+            <td onclick="selectSpace(18)" id = "space18"></td>
+            <td onclick="selectSpace(19)" id = "space19"></td>
+        </tr>   
+        <tr>
+            <td onclick="selectSpace(20)" id = "space20"></td>
+            <td onclick="selectSpace(21)" id = "space21"></td>
+            <td onclick="selectSpace(22)" id = "space22"></td>
+            <td onclick="selectSpace(23)" id = "space23"></td>
+            <td onclick="selectSpace(24)" id = "space24"></td>
+        </tr>   
+    </table>
+        <h4>Printed at nathill96.github.io/fuelnhlbingo</h4>
+        </div>
+        
+    </div>
+</body>
+</html>
